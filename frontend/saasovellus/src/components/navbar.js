@@ -20,6 +20,7 @@ function NavBar() {
               width="35"
               height="35"
               className="d-inline-block align-top me-2"
+              alt = "logo"
             />
         <Navbar.Brand href="saa">SAA</Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarScroll" />
