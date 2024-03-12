@@ -1,4 +1,4 @@
-import TypesExample from './components/navbar';
+import NavBar from './components/navbar';
 import './App.css';
 import { ApiHaku } from './components/ApiHaku';
 import { useState, useEffect } from 'react';
@@ -18,7 +18,7 @@ function App() {
 
   return (
     <div className="App">
-      <TypesExample/>
+      <NavBar/>
     </div>
   );
 }
