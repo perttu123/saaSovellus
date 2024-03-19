@@ -24,7 +24,7 @@ function App() {
 
   return (
     <div className="App">
-      <NavBar />
+      
       <Row>
         <Col md={6}><Paikka /></Col>
         <Col md={6}><SaaNyt /></Col>
