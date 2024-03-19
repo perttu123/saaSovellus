@@ -16,7 +16,7 @@ function SearchResult() {
     const location = useLocation();
     const search = location.pathname.substring(1);
 
-    const [data, setData] = useState([]);
+    const [hourlyData, setHourlyData] = useState([]);
     const [currentWeather, setCurrentWeather] = useState({
         time: '',
         interval: 0,
@@ -28,7 +28,7 @@ function SearchResult() {
         async function fetchData() {
             try {
                 const response = await SendLocation(search);
-                setData(response);
+                setHourlyData(response.hourly);
                 setCurrentWeather(response.current);
             } catch (error) {
                 console.error('Error fetching data:', error);
@@ -49,7 +49,7 @@ function SearchResult() {
         <Row className="mt-5 px-5">
           <div className="col-md-6">
             <h3>Tuntiennuste</h3>
-            <TuntiEnnuste />
+            <TuntiEnnuste data={hourlyData}/>
           </div>
           <div className="col-md-6">
             <h3>Viikkoennuste</h3>

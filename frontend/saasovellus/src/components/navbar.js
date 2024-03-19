@@ -26,7 +26,7 @@ function NavBar() {
               className="d-inline-block align-top me-2"
               alt = "logo"
             />
-        <Navbar.Brand href="saa">SAA</Navbar.Brand>
+        <Navbar.Brand href="/">SAA</Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarScroll" />
         <Navbar.Collapse id="navbarScroll">
           <Nav
@@ -34,7 +34,7 @@ function NavBar() {
             style={{ maxHeight: '100px' }}
             navbarScroll
           >
-            <Nav.Link href="saa">Sääennuste</Nav.Link>
+            <Nav.Link href="/">Sääennuste</Nav.Link>
             <Nav.Link href="vertailu">Vertailu</Nav.Link>
           </Nav>
 
