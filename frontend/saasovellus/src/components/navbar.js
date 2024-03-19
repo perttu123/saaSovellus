@@ -2,17 +2,21 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { useState } from 'react';
 import {Button, Container, Form, Nav, Navbar} from 'react-bootstrap';
 
+import {useNavigate} from 'react-router-dom';
 function NavBar() {
 
   //kesken
   const [search, setSearch] = useState("");
 
-  const searchPressed = () => {
-    console.log(search)
+  const navigate = useNavigate();
 
+  async function searchPressed() {
+    
+    navigate(`/${search}`);
+    setSearch("");
   }
-
-  return (
+  
+  return (<>
     <Navbar bg="dark" data-bs-theme="dark">
       <Container fluid>
             <img
@@ -44,12 +48,12 @@ function NavBar() {
               //kesken
               onChange={(e) => setSearch(e.target.value)}
             />
-            <Button onClick={searchPressed} variant='outline-info'>Hae</Button>
+            <Button onClick={()=>searchPressed()} variant='outline-info'>Hae</Button>
           </Form>
         </Navbar.Collapse>
       </Container>
     </Navbar>
-  );
+    </>);
 }
 
 export default NavBar;

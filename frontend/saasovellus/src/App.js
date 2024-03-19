@@ -1,25 +1,28 @@
-import TypesExample from './components/navbar';
+
 import './App.css';
 import { ApiHaku } from './components/ApiHaku';
 import { useState, useEffect } from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Layout from './pages/Layout';
+import SearchResult from './pages/SearchResult';
 
 function App() {
 
-  const [data, setData] = useState();
-  
-  async function fetchData(){
-    const response = await ApiHaku();
-    setData(response);
-  }
-  
-  useEffect(()=>{
-    fetchData();
-  },[])
+ 
 
   return (
-    <div className="App">
-      <TypesExample/>
-    </div>
+    
+     
+      <BrowserRouter>
+      <Routes>
+      <Route path="/" element={<Layout />}>
+          <Route path="/:search" element={<SearchResult />} />
+        </Route>
+        
+      </Routes>
+      </BrowserRouter>
+      
+    
   );
 }
 //haloo
