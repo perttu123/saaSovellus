@@ -36,5 +36,5 @@ function App() {
   );
 }
 
-//haloo
+//halooo
 export default App;
