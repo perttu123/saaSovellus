@@ -17,12 +17,19 @@ function SearchResult() {
     const search = location.pathname.substring(1);
 
     const [data, setData] = useState([]);
+    const [currentWeather, setCurrentWeather] = useState({
+        time: '',
+        interval: 0,
+        temperature_2m: 0,
+        weather_code: 0
+    })
 
     useEffect(() => {
         async function fetchData() {
             try {
                 const response = await SendLocation(search);
                 setData(response);
+                setCurrentWeather(response.current);
             } catch (error) {
                 console.error('Error fetching data:', error);
             }
@@ -31,16 +38,13 @@ function SearchResult() {
         fetchData();
     }, [search]);
 
-    useEffect(() => {
-        console.log(data.latitude);
-    }, [data]);
 
     return (
         <div className="App">
       
         <Row>
-          <Col md={6}><Paikka /></Col>
-          <Col md={6}><SaaNyt data={data}/></Col>
+          <Col md={6}><Paikka data={search}/></Col>
+          <Col md={6}><SaaNyt data={currentWeather}/></Col>
         </Row>
         <Row className="mt-5 px-5">
           <div className="col-md-6">
