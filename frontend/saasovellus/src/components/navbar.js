@@ -1,33 +1,19 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { useState } from 'react';
 import {Button, Container, Form, Nav, Navbar} from 'react-bootstrap';
-import { SendLocation } from './ApiHaku';
+
+import {useNavigate} from 'react-router-dom';
 function NavBar() {
 
   //kesken
   const [search, setSearch] = useState("");
 
+  const navigate = useNavigate();
 
   async function searchPressed() {
-    const data = await SendLocation(search);
-
-    setSearch("");
     
-    const currentDate = new Date();
-    const formattedDate = currentDate.toISOString().slice(0, 14)+"00";
-    console.log("current " +currentDate);
-    console.log(formattedDate);
-
-    // const getCurrentTemp = data.hourly.time.find((item)=>new Date(item)<formattedDate  && new Date(item)> formattedDate);
-    const current = data.hourly.time.find((item)=>item===formattedDate);
-    console.log(current);
-    const index = data.hourly.time.indexOf(current);
-    console.log(index);
-    // for (let i = 0; i < data.hourly.temperature_2m.length; i++) {
-    //   console.log(data.hourly.time[i] + data.hourly.temperature_2m[i]);
-    //   console.log(current)
-    // }
-    console.log(data.hourly.temperature_2m[index]);
+    navigate(`/${search}`);
+    setSearch("");
   }
   
   return (<>

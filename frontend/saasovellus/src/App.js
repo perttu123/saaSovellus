@@ -1,3 +1,4 @@
+
 import NavBar from './components/navbar';
 import {Row, Col} from 'react-bootstrap'
 import './App.css';
@@ -7,22 +8,19 @@ import Paikka from './components/paikkakunta';
 import SaaNyt from './components/saanyt';
 import ViikkoEnnuste from './components/viikkoennuste';
 import TuntiEnnuste from './components/tuntiennuste';
-import './App.css'
+
+
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Layout from './pages/Layout';
+import SearchResult from './pages/SearchResult';
+
 
 function App() {
 
-  const [data, setData] = useState();
-  
-  async function fetchData(){
-    const response = await ApiHaku();
-    setData(response);
-  }
-  
-  useEffect(()=>{
-    fetchData();
-  },[])
+ 
 
   return (
+
     <div className="App">
       
       <Row>
@@ -40,6 +38,18 @@ function App() {
         </div>
       </Row>
     </div>
+    
+     <BrowserRouter>
+      <Routes>
+      <Route path="/" element={<Layout />}>
+          <Route path="/:search" element={<SearchResult />} />
+        </Route>
+        
+      </Routes>
+      </BrowserRouter>
+      
+      
+
   );
 }
 
