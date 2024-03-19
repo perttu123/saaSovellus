@@ -21,23 +21,7 @@ function App() {
 
   return (
 
-    <div className="App">
-      
-      <Row>
-        <Col md={6}><Paikka /></Col>
-        <Col md={6}><SaaNyt /></Col>
-      </Row>
-      <Row className="mt-5 px-5">
-        <div className="col-md-6">
-          <h3>Tuntiennuste</h3>
-          <TuntiEnnuste />
-        </div>
-        <div className="col-md-6">
-          <h3>Viikkoennuste</h3>
-          <ViikkoEnnuste />
-        </div>
-      </Row>
-    </div>
+<>
     
      <BrowserRouter>
       <Routes>
@@ -49,7 +33,7 @@ function App() {
       </BrowserRouter>
       
       
-
+      </>
   );
 }
 

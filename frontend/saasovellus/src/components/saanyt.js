@@ -2,7 +2,7 @@ import React from 'react';
 import {Card} from 'react-bootstrap';
 
 //Sää atm card
-const SaaNyt = () => {
+const SaaNyt = ({data}) => {
   return (
   <div className="mt-4 px-3" >
         <Card style={{ backgroundColor: '#f8f9fa' }}>
@@ -11,7 +11,7 @@ const SaaNyt = () => {
             <Card.Img variant="top" src="rain.svg" style={{ maxWidth: '20%', maxHeight: '200px'}}>
             
             </Card.Img>
-            <Card.Title style={{fontSize:"40px"}}>5°C</Card.Title>
+            <Card.Title style={{fontSize:"40px"}}>{data.latitude}</Card.Title>
             <Card.Text style={{fontSize:"30px"}}>Sadetta</Card.Text>
           </Card.Body>
         </Card>
