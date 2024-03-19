@@ -6,17 +6,38 @@ import {useState, useEffect} from 'react'
 const SaaNyt = ({data}) => {
 
   const [saaTyyppi, setSaaTyyppi] = useState("");
+  
+  const [gif, setGif] = useState("")
 
   useEffect(() => {
     switch (data.weather_code) {
       case 0: 
+        setGif("Gifit/clear-day.svg")
         setSaaTyyppi("Aurinkoista");
         break;
-      case 1:
+
+      case 1: case 2:
+        setGif("Gifit/partly-cloudy-day.svg")
         setSaaTyyppi("Hieman pilvistä");
         break;
-      case 61:
+
+      case 3: case 45: case 48:
+        setGif("Gifit/cloudy.svg")
+        setSaaTyyppi("Pilvistä");
+        break;
+
+      case 61: case 63: case 65:
+        setGif("Gifit/rain.svg");
         setSaaTyyppi("Sadetta");
+        break;
+
+      case 71: case 73: case 75: case 77:
+        setGif("Gifit/snow.svg");
+        setSaaTyyppi("Lumisadetta");
+
+      case 95: case 96: case 99:
+        setGif("Gifit/thunderstorms.svg");
+        setSaaTyyppi("Myrsky/Ukkonen");
         break;
       default:
         break;
@@ -24,6 +45,7 @@ const SaaNyt = ({data}) => {
   }, [data.weather_code]);
 
   return (
+    
   <div className="mt-4 px-3">
     <Card style={{ backgroundColor: '#f8f9fa' }}>
       <Card.Body style={{ position: 'relative' }}>
@@ -51,9 +73,14 @@ const SaaNyt = ({data}) => {
           
       </Card.Body>
     </Card>
+
   </div>
 
   );
+  
+  
+
+    
 };
 
 export default SaaNyt;
