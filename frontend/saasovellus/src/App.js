@@ -13,7 +13,7 @@ import TuntiEnnuste from './components/tuntiennuste';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Layout from './pages/Layout';
 import SearchResult from './pages/SearchResult';
-
+import Vertailu from './pages/Vertailu';
 
 function App() {
 
@@ -21,11 +21,11 @@ function App() {
 
   return (
 
-<>
-    
+    <>
      <BrowserRouter>
       <Routes>
       <Route path="/" element={<Layout />}>
+          <Route path='/vertailu' element={<Vertailu/>}/>
           <Route path="/:search" element={<SearchResult />} />
         </Route>
         
