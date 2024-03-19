@@ -44,20 +44,8 @@ const SaaNyt = ({data}) => {
     }
   }, [data.weather_code]);
 
-  return(
-    <>
-  <div className="mt-4 px-3" >
-        <Card style={{ backgroundColor: '#f8f9fa' }}>
-          <Card.Body>
-          <Card.Title style={{fontSize:"30px"}}>Sää tällä hetkellä</Card.Title>
-            <Card.Img variant="top" src={gif} style={{ maxWidth: '20%', maxHeight: '200px'}}>
-            
-            </Card.Img>
-            <Card.Title style={{fontSize:"40px"}}>{data.temperature_2m} C</Card.Title>
-            <Card.Text style={{fontSize:"30px"}}>{saaTyyppi}</Card.Text>
-          </Card.Body>
-        </Card>
-
+  return (
+    
   <div className="mt-4 px-3">
     <Card style={{ backgroundColor: '#f8f9fa' }}>
       <Card.Body style={{ position: 'relative' }}>
@@ -87,8 +75,12 @@ const SaaNyt = ({data}) => {
     </Card>
 
   </div>
-  </>
+
   );
+  
+  
+
+    
 };
 
 export default SaaNyt;
