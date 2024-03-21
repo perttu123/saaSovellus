@@ -32,7 +32,7 @@ const TuntiEnnuste = ({data}) => {
     <div className='oee'>
       
         
-      <Table className='table' style={{ maxWidth: '1000px', fontSize:'20px' }} bordered striped>
+      <Table className='table' style={{ maxWidth: '1000px', fontSize:'20px', border: '2px solid black', padding: "20px"}} striped>
         <thead>
           <tr>
             <th>Sää</th>
@@ -46,7 +46,7 @@ const TuntiEnnuste = ({data}) => {
           
             <tr>
             <td><img src="saa.png" alt="Image" style={{ maxWidth: '45px' }}/>{item.weather}</td>
-              <td>{item.temp} C</td>
+              <td>{item.temp} °C</td>
               <td>{new Date(item.time).toLocaleTimeString([], {hour: "2-digit", minute:"2-digit"} )}</td>
             </tr>
 
