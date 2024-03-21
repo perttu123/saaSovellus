@@ -1,54 +1,32 @@
 import Table from 'react-bootstrap/Table';
 
 //Viikkoennuste taulukko
-const ViikkoEnnuste = () => {
+const ViikkoEnnuste = ({data}) => {
+  
     return (
     <div className='oee'>
   
-      <Table className='table' style={{ maxWidth: '1000px', fontSize:'20px', borderRadius: '10px' }} bordered striped>
+      <Table className='table' style={{ maxWidth: '1000px', fontSize:'20px', border: '2px solid black', padding: "20px" }} bordered striped>
         <thead>
           <tr>
             <th>Sää</th>
-            <th>Lämpötila</th>
+            <th>min</th>
+            <th>max</th>
             <th>Päivä </th>
           </tr>
         </thead>
         <tbody>
+          
+          {data.map((item)=>(
+          
           <tr>
-            <td><img src="saa.png" alt="Image" style={{ maxWidth: '45px' }} /></td>
-            <td>-1 C</td>
-            <td>Maanantai 17.3.2024</td>
+            <td><img src={item.image} alt="Image" style={{ maxWidth: '45px' }} /></td>
+            <td>{item.min} °C</td>
+            <td>{item.max} °C</td>
+            <td>{item.date}</td>
           </tr>
-          <tr>
-            <td></td>
-            <td>-2 C</td>
-            <td>Tiistai 18.3.2024</td>
-          </tr>
-          <tr>
-            <td></td>
-            <td>-2 C</td>
-            <td>Keskiviikko 19.3.2024</td>
-          </tr>
-          <tr>
-            <td></td>
-            <td>-2 C</td>
-            <td>Torstai 20.3.2024</td>
-          </tr>
-          <tr>
-            <td></td>
-            <td>-2 C</td>
-            <td>Perjantai 21.3.2024</td>
-          </tr>
-          <tr>
-            <td></td>
-            <td>-2 C</td>
-            <td>Lauantai 22.3.2024</td>
-          </tr>
-          <tr>
-            <td></td>
-            <td>-2 C</td>
-            <td>Sunnuntai 23.3.2024</td>
-          </tr>
+
+          ))}
         </tbody>
       </Table>
       

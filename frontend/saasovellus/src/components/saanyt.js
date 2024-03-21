@@ -4,12 +4,14 @@ import {useState, useEffect} from 'react'
 
 //Sää atm card
 const SaaNyt = ({data}) => {
-
-  const [saaTyyppi, setSaaTyyppi] = useState("");
   
+  console.log(data);
+  const [saaTyyppi, setSaaTyyppi] = useState("");
   const [gif, setGif] = useState("")
 
+
   useEffect(() => {
+
     switch (data.weather_code) {
       case 0: 
         setGif("Gifit/clear-day.svg")
@@ -42,24 +44,25 @@ const SaaNyt = ({data}) => {
       default:
         break;
     }
-  }, [data.weather_code]);
+  
+  }, [data]);
 
   return (
     
   <div className="mt-4 px-3">
-    <Card style={{ backgroundColor: '#f8f9fa' }}>
+    <Card style={{ backgroundColor: '#f8f9fa', border: '2px solid black', padding: "20px"}}>
       <Card.Body style={{ position: 'relative' }}>
         <Card.Title style={{fontSize:"30px"}}>Sää tällä hetkellä</Card.Title>
 
-          <Card.Img src="gifit/rain.svg" style={{ maxWidth: '20%', maxHeight: '200px', marginLeft: 'auto', marginRight: 'auto', display: 'block' }} />
+          <Card.Img src={gif} style={{ maxWidth: '20%', maxHeight: '200px', marginLeft: 'auto', marginRight: 'auto', display: 'block'}} />
 
           {/* kosteus */}
           <Card.Img src="gifit/humidity.svg" style={{ maxWidth: '20%', maxHeight: '120px', position: 'absolute', left: 10, top: '30%', transform: 'translateY(-50%)' }} />
-          <span style={{ maxWidth: '40%', maxHeight: '120px', position: 'absolute', left: 40, top: '30%', transform: 'translateY(-50%)', fontSize: '20px', fontWeight: 'bold' }}>40%</span>
+          <span style={{ maxWidth: '40%', maxHeight: '120px', position: 'absolute', left: 5, top: '30%', transform: 'translateY(-50%)', fontSize: '20px', fontWeight: 'bold' }}>40%</span>
 
           {/* tuulennopeus */}
           <Card.Img src="static/wind-1.svg" style={{ maxWidth: '20%', maxHeight: '100px', position: 'absolute', left: 33, top: '68%', transform: 'translateY(-50%)' }} />
-          <span style={{ maxWidth: '20%', maxHeight: '100px', position: 'absolute', left: 28, top: '68%', transform: 'translateY(-50%)', fontSize: '20px', fontWeight: 'bold' }}>10m/s</span>
+          <span style={{ maxWidth: '20%', maxHeight: '100px', position: 'absolute', left: 5, top: '68%', transform: 'translateY(-50%)', fontSize: '20px', fontWeight: 'bold' }}>10m/s</span>
 
 
           {/* Nää on ehkä useless, voi laittaa viikkoennuste laatikon sisää <Card.Img src="gifit/thermometer-warmer.svg" style={{ maxWidth: '20%', maxHeight: '120px', position: 'absolute', right: 15, top: '30%', transform: 'translateY(-50%)' }} />
