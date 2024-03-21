@@ -4,12 +4,14 @@ import {useState, useEffect} from 'react'
 
 //Sää atm card
 const SaaNyt = ({data}) => {
-
-  const [saaTyyppi, setSaaTyyppi] = useState("");
   
+  console.log(data);
+  const [saaTyyppi, setSaaTyyppi] = useState("");
   const [gif, setGif] = useState("")
 
+
   useEffect(() => {
+
     switch (data.weather_code) {
       case 0: 
         setGif("Gifit/clear-day.svg")
@@ -42,7 +44,8 @@ const SaaNyt = ({data}) => {
       default:
         break;
     }
-  }, [data.weather_code]);
+  
+  }, [data]);
 
   return (
     

@@ -1,6 +1,6 @@
 
 import express from 'express'
-
+import {get7Hours, getWeeklyData} from '../jsonQueries/queries.js';
 const router = express.Router();
 
 
@@ -14,7 +14,15 @@ router.get('/data/:search', async (req, res)=>{
     
     const data = await response.json();
 
-    res.send(data);
+    const sevenHours = get7Hours({data});
+    const weekly = getWeeklyData({data});
+    const weatherData = {
+        hours: sevenHours,
+        current: data.current,
+        daily: weekly,
+        city: search
+    }
+    res.send(weatherData);
 
 });
 

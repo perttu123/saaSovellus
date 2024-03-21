@@ -16,20 +16,32 @@ function SearchResult() {
     const location = useLocation();
     const search = location.pathname.substring(1);
 
-    const [hourlyData, setHourlyData] = useState([]);
-    const [currentWeather, setCurrentWeather] = useState({
-        time: '',
-        interval: 0,
-        temperature_2m: 0,
-        weather_code: 0
-    })
+    // const [hourlyData, setHourlyData] = useState([]);
+    // const [currentWeather, setCurrentWeather] = useState({
+    //     time: '',
+    //     interval: 0,
+    //     temperature_2m: 0,
+    //     weather_code: 0,
+    //     relative_humidity_2m: 0,
+    //     wind_speed_10m: 0
+    // })
+    const [data, setData] = useState({
+        hours: [],
+        current: {},
+        daily: [],
+        city: ""
+    });
 
     useEffect(() => {
         async function fetchData() {
             try {
                 const response = await SendLocation(search);
-                setHourlyData(response.hourly);
-                setCurrentWeather(response.current);
+                
+                setData(response);
+                
+                
+                // setHourlyData(response.hours);
+                // setCurrentWeather(response.current);
             } catch (error) {
                 console.error('Error fetching data:', error);
             }
@@ -38,22 +50,21 @@ function SearchResult() {
         fetchData();
     }, [search]);
 
-
     return (
         <div className="App">
       
         <Row>
-          <Col md={6}><Paikka data={search}/></Col>
-          <Col md={6}><SaaNyt data={currentWeather}/></Col>
+          <Col md={6}><Paikka data={data.city}/></Col>
+          <Col md={6}><SaaNyt data={data.current}/></Col>
         </Row>
         <Row className="mt-5 px-5">
           <div className="col-md-6">
             <h3>Tuntiennuste</h3>
-            <TuntiEnnuste data={hourlyData}/>
+            <TuntiEnnuste data={data.hours}/>
           </div>
           <div className="col-md-6">
             <h3>Viikkoennuste</h3>
-            <ViikkoEnnuste />
+            <ViikkoEnnuste data={data.daily}/>
           </div>
         </Row>
       </div>
