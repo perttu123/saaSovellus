@@ -38,6 +38,9 @@
 }
 
 body {
-  background-color: lightblue;
+  background-size: cover;
+  justify-content: center;
+  /* background-image: url("../public/Static/kuva.png"); */
+  background-image: url("https://cdn.pixabay.com/photo/2015/08/19/15/58/lake-896191_1280.jpg");
 }
 

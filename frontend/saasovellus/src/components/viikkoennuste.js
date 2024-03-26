@@ -6,7 +6,7 @@ const ViikkoEnnuste = ({data}) => {
     return (
     <div className='oee'>
   
-      <Table className='table' style={{ maxWidth: '1000px', fontSize:'20px', border: '2px solid black', padding: "20px" }} bordered striped>
+      <Table className='table' style={{ maxWidth: '1000px', fontSize:'20px', border: '2px solid black', padding: "20px" }} bordered striped variant='dark'>
         <thead>
           <tr>
             <th>Sää</th>
