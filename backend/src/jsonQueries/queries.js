@@ -32,7 +32,7 @@ export function get7Hours({data}){
 
             break;
     
-          case 61: case 63: case 65:
+          case 61: case 63: case 65: case 80: case 81: case 82:
             image = "Static/rain.svg";
 
             break;
@@ -58,6 +58,7 @@ export function get7Hours({data}){
 
 
 export function getWeeklyData({data}){
+  console.log(data.daily.weather_code)
   let array = [];
   for (let index = 0; index < data.daily.weather_code.length; index++) {
     let image = "";
@@ -78,7 +79,7 @@ export function getWeeklyData({data}){
 
         break;
 
-      case 61: case 63: case 65:
+      case 61: case 63: case 65: case 66:
         image = "Static/rain.svg";
 
         break;
@@ -86,7 +87,7 @@ export function getWeeklyData({data}){
       case 71: case 73: case 75: case 77:
         image = "Static/snow.svg";
 
-
+        break;
       case 95: case 96: case 99:
         image = "Static/thunderstorms.svg";
         break;
