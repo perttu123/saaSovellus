@@ -49,8 +49,8 @@ const SaaNyt = ({data}) => {
 
   return (
     
-  <div className="mt-4 px-3">
-    <Card style={{ backgroundColor: '#332D2D', border: '2px solid black', padding: "20px"}} >
+  <div className="mt-4 px-4">
+    <Card style={{ backgroundColor: '#2A3439', border: '2px solid black', padding: "20px"}} >
       <Card.Body style={{ position: 'relative' }}>
         <Card.Title style={{fontSize:"30px", color:"#f8f9fa"}}>Sää tällä hetkellä</Card.Title>
 
@@ -64,11 +64,6 @@ const SaaNyt = ({data}) => {
           <Card.Img src="Gifit/wind.svg" style={{ maxWidth: '20%', maxHeight: '100px', position: 'absolute', left: 65, top: '68%', transform: 'translateY(-50%)' }} />
           <span style={{ maxWidth: '20%', maxHeight: '100px', position: 'absolute', left: 5, top: '68%', transform: 'translateY(-50%)', fontSize: '20px', fontWeight: 'bold',color:"#f8f9fa" }}>{tuulenNopeus}m/s</span>
 
-
-          {/* Nää on ehkä useless, voi laittaa viikkoennuste laatikon sisää <Card.Img src="gifit/thermometer-warmer.svg" style={{ maxWidth: '20%', maxHeight: '120px', position: 'absolute', right: 15, top: '30%', transform: 'translateY(-50%)' }} />
-
-          <Card.Img src="gifit/thermometer-colder.svg" style={{ maxWidth: '20%', maxHeight: '120px', position: 'absolute', right: 10, top: '68%', transform: 'translateY(-50%)' }} /> */}
-
           <div style={{ marginLeft: '25%', marginRight: '20%' }}>
           <Card.Title style={{fontSize:"40px", color:"#f8f9fa"}}>{data.temperature_2m} °C</Card.Title>
           <Card.Text style={{fontSize:"30px", color:"#f8f9fa"}}>{saaTyyppi}</Card.Text>
@@ -81,9 +76,6 @@ const SaaNyt = ({data}) => {
 
   );
   
-  
-
-    
 };
 
 export default SaaNyt;

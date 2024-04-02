@@ -65,14 +65,15 @@ function SearchResult() {
         </Row>
         <Row className="mt-5 px-5">
           <div className="col-md-6">
-            <h3>Tuntiennuste</h3>
+            <h3 style={{ backgroundColor: '#2A3439', padding: '10px', color:'white', border: '2px solid black'}}>Tuntiennuste</h3>
             <TuntiEnnuste data={data.hours}/>
           </div>
           <div className="col-md-6">
-            <h3>Viikkoennuste</h3>
+            <h3 style={{ backgroundColor: '#2A3439', padding: '10px', color:'white', border: '2px solid black'}}>Viikkoennuste</h3>
             <ViikkoEnnuste data={data.daily}/>
           </div>
         </Row>
+
           </>
         )}
         
