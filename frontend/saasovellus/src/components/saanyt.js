@@ -21,7 +21,7 @@ const SaaNyt = ({data}) => {
 
       case 1: case 2:
         setGif("Gifit/partly-cloudy-day.svg")
-        setSaaTyyppi("Hieman pilvistä");
+        setSaaTyyppi("Puolipilvistä");
         break;
 
       case 3: case 45: case 48:
@@ -57,11 +57,11 @@ const SaaNyt = ({data}) => {
           <Card.Img src={gif} style={{ maxWidth: '20%', maxHeight: '200px', marginLeft: 'auto', marginRight: 'auto', display: 'block'}} />
 
           {/* kosteus */}
-          <Card.Img src="gifit/humidity.svg" style={{ maxWidth: '20%', maxHeight: '120px', position: 'absolute', left: 10, top: '30%', transform: 'translateY(-50%)' }} />
+          <Card.Img src="gifit/humidity.svg" style={{ maxWidth: '20%', maxHeight: '120px', position: 'absolute', left: 15, top: '30%', transform: 'translateY(-50%)' }} />
           <span style={{ maxWidth: '40%', maxHeight: '120px', position: 'absolute', left: 5, top: '30%', transform: 'translateY(-50%)', fontSize: '20px', fontWeight: 'bold' ,color:"#f8f9fa"}}>{kosteus}%</span>
 
           {/* tuulennopeus */}
-          <Card.Img src="Gifit/wind.svg" style={{ maxWidth: '20%', maxHeight: '100px', position: 'absolute', left: 80, top: '68%', transform: 'translateY(-50%)' }} />
+          <Card.Img src="Gifit/wind.svg" style={{ maxWidth: '20%', maxHeight: '100px', position: 'absolute', left: 65, top: '68%', transform: 'translateY(-50%)' }} />
           <span style={{ maxWidth: '20%', maxHeight: '100px', position: 'absolute', left: 5, top: '68%', transform: 'translateY(-50%)', fontSize: '20px', fontWeight: 'bold',color:"#f8f9fa" }}>{tuulenNopeus}m/s</span>
 
 
