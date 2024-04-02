@@ -6,12 +6,12 @@ const ViikkoEnnuste = ({data}) => {
     return (
     <div className='oee'>
   
-      <Table className='table' style={{ maxWidth: '1000px', fontSize:'20px', border: '2px solid black', padding: "20px" }} bordered striped variant='dark'>
+      <Table className='table' style={{ maxWidth: '1000px', fontSize:'18px', border: '2px solid black', padding: "20px" }} bordered striped variant='dark'>
         <thead>
           <tr>
             <th>Sää</th>
-            <th>min</th>
-            <th>max</th>
+            <th>Alin lämpötila</th>
+            <th>Korkein lämpötila</th>
             <th>Päivä </th>
           </tr>
         </thead>
