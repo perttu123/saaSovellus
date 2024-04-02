@@ -12,7 +12,6 @@ router.get('/data/:search', async (req, res)=>{
     
 
     if(coordinates=="error"){
-        console.log("okfadga");
         res.send({error: "error"});
     }
     else{
