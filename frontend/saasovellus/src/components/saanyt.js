@@ -50,7 +50,7 @@ const SaaNyt = ({data}) => {
   return (
     
   <div className="mt-4 px-4">
-    <Card style={{ backgroundColor: '#2A3439', border: '2px solid black', padding: "20px"}} >
+    <Card style={{ backgroundColor: '#212529', border: '2px solid black', padding: "20px"}} >
       <Card.Body style={{ position: 'relative' }}>
         <Card.Title style={{fontSize:"30px", color:"#f8f9fa"}}>Sää tällä hetkellä</Card.Title>
 
