@@ -21,7 +21,7 @@ const SaaNyt = ({data}) => {
 
       case 1: case 2:
         setGif("Gifit/partly-cloudy-day.svg")
-        setSaaTyyppi("Hieman pilvistä");
+        setSaaTyyppi("Puolipilvistä");
         break;
 
       case 3: case 45: case 48:
@@ -29,7 +29,7 @@ const SaaNyt = ({data}) => {
         setSaaTyyppi("Pilvistä");
         break;
 
-      case 61: case 63: case 65:
+      case 55: case 61: case 63: case 65:
         setGif("Gifit/rain.svg");
         setSaaTyyppi("Sadetta");
         break;
@@ -49,25 +49,20 @@ const SaaNyt = ({data}) => {
 
   return (
     
-  <div className="mt-4 px-3">
-    <Card style={{ backgroundColor: '#332D2D', border: '2px solid black', padding: "20px"}} >
+  <div className="mt-4 px-4">
+    <Card style={{ backgroundColor: '#212529', border: '2px solid black', padding: "20px"}} >
       <Card.Body style={{ position: 'relative' }}>
         <Card.Title style={{fontSize:"30px", color:"#f8f9fa"}}>Sää tällä hetkellä</Card.Title>
 
           <Card.Img src={gif} style={{ maxWidth: '20%', maxHeight: '200px', marginLeft: 'auto', marginRight: 'auto', display: 'block'}} />
 
           {/* kosteus */}
-          <Card.Img src="gifit/humidity.svg" style={{ maxWidth: '20%', maxHeight: '120px', position: 'absolute', left: 10, top: '30%', transform: 'translateY(-50%)' }} />
+          <Card.Img src="gifit/humidity.svg" style={{ maxWidth: '20%', maxHeight: '120px', position: 'absolute', left: 15, top: '30%', transform: 'translateY(-50%)' }} />
           <span style={{ maxWidth: '40%', maxHeight: '120px', position: 'absolute', left: 5, top: '30%', transform: 'translateY(-50%)', fontSize: '20px', fontWeight: 'bold' ,color:"#f8f9fa"}}>{kosteus}%</span>
 
           {/* tuulennopeus */}
-          <Card.Img src="Gifit/wind.svg" style={{ maxWidth: '20%', maxHeight: '100px', position: 'absolute', left: 80, top: '68%', transform: 'translateY(-50%)' }} />
+          <Card.Img src="Gifit/wind.svg" style={{ maxWidth: '20%', maxHeight: '100px', position: 'absolute', left: 65, top: '68%', transform: 'translateY(-50%)' }} />
           <span style={{ maxWidth: '20%', maxHeight: '100px', position: 'absolute', left: 5, top: '68%', transform: 'translateY(-50%)', fontSize: '20px', fontWeight: 'bold',color:"#f8f9fa" }}>{tuulenNopeus}m/s</span>
-
-
-          {/* Nää on ehkä useless, voi laittaa viikkoennuste laatikon sisää <Card.Img src="gifit/thermometer-warmer.svg" style={{ maxWidth: '20%', maxHeight: '120px', position: 'absolute', right: 15, top: '30%', transform: 'translateY(-50%)' }} />
-
-          <Card.Img src="gifit/thermometer-colder.svg" style={{ maxWidth: '20%', maxHeight: '120px', position: 'absolute', right: 10, top: '68%', transform: 'translateY(-50%)' }} /> */}
 
           <div style={{ marginLeft: '25%', marginRight: '20%' }}>
           <Card.Title style={{fontSize:"40px", color:"#f8f9fa"}}>{data.temperature_2m} °C</Card.Title>
@@ -81,9 +76,6 @@ const SaaNyt = ({data}) => {
 
   );
   
-  
-
-    
 };
 
 export default SaaNyt;
