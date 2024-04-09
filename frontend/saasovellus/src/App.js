@@ -24,7 +24,7 @@ function App() {
       <Routes>
       <Route path="/" element={<Layout />}>
           <Route path="/" element={<Navigate to={"/Mikkeli"}/>}/>
-          <Route path='/vertailu' element={<Vertailu/>}/>
+          <Route path='/vertailu/:search' element={<Vertailu/>}/>
           <Route path="/:search" element={<SearchResult />} />
         </Route>
         
