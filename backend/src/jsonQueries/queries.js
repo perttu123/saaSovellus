@@ -11,7 +11,7 @@ export function get7Hours({data}){
   
     if (data.hourly){
       let currentIndex = data.hourly.time.indexOf(formattedDate);
-      
+
       for (let index = 0; index < 7; index++) {
         let image = "";
         const weatherCode = data.hourly.weather_code[index];
@@ -47,7 +47,7 @@ export function get7Hours({data}){
         currentIndex++;
       }
     }
-
+    
     return array;
 }
 
@@ -67,7 +67,8 @@ export function getWeeklyData({data}){
         image = "Static/partly-cloudy-day.svg"
         break;
 
-      case 3,45,48:
+
+      case 3: case 45: case 48, 55:
         image = "Static/cloudy.svg"
         break;
 

@@ -14,9 +14,12 @@ router.get('/localip', (req,res) =>{
 router.get('/vertaile/:kaupunki1/vs/:kaupunki2', async (req, res)=>{
     const kaupunki1 = req.params.kaupunki1;
     const kaupunki2 = req.params.kaupunki2;
+    let coordinates1, coordinates2;
+    
+    coordinates1 = await getCoordinates(kaupunki1);
+    coordinates2 = await getCoordinates(kaupunki2);
+    
 
-    const coordinates1 = await getCoordinates(kaupunki1);
-    const coordinates2 = await getCoordinates(kaupunki2);
     console.log(coordinates2, coordinates1);
     if(coordinates1=="error" || coordinates2=="error"){
         res.send({error: "error"});
@@ -46,7 +49,12 @@ router.get('/vertaile/:kaupunki1/vs/:kaupunki2', async (req, res)=>{
         //     daily: weekly2,
         //     city: kaupunki2
         // }
-        res.send({data: {data1, data2}});
+        
+        const body ={
+            data1: data1,
+            data2: data2
+        }
+        res.status(200).send(body) 
     }    
 
 })
@@ -90,9 +98,6 @@ async function getCoordinates(search){
         const coordinates = {latitude: data[0].lat, longitude: data[0].lon}
         return coordinates;
     }
-   
-    
-    
 }
 
 export default router;
