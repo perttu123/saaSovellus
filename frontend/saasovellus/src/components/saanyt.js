@@ -57,21 +57,19 @@ const SaaNyt = ({data}) => {
           <Card.Img src={gif} style={{ maxWidth: '20%', maxHeight: '200px', marginLeft: 'auto', marginRight: 'auto', display: 'block'}} />
 
           {/* kosteus */}
-          <Card.Img src="gifit/humidity.svg" style={{ maxWidth: '20%', maxHeight: '120px', position: 'absolute', left: 15, top: '30%', transform: 'translateY(-50%)' }} />
-          <span style={{ maxWidth: '40%', maxHeight: '120px', position: 'absolute', left: 5, top: '30%', transform: 'translateY(-50%)', fontSize: '20px', fontWeight: 'bold' ,color:"#f8f9fa"}}>{kosteus}%</span>
+          <Card.Img src="gifit/humidity.svg" style={{ maxWidth: '20%', maxHeight: '120px', position: 'absolute', left: '0%', top: '13%'}} />
+          <span style={{ maxWidth: '40%', maxHeight: '120px', position: 'absolute', left: '2%', top: '27%', fontSize: '20px', fontWeight: 'bold' ,color:"#f8f9fa"}}>{kosteus}%</span>
 
           {/* tuulennopeus */}
-          <Card.Img src="Gifit/wind.svg" style={{ maxWidth: '20%', maxHeight: '100px', position: 'absolute', left: 65, top: '68%', transform: 'translateY(-50%)' }} />
-          <span style={{ maxWidth: '20%', maxHeight: '100px', position: 'absolute', left: 5, top: '68%', transform: 'translateY(-50%)', fontSize: '20px', fontWeight: 'bold',color:"#f8f9fa" }}>{tuulenNopeus}m/s</span>
+          <Card.Img src="Gifit/wind.svg" style={{ maxWidth: '20%', maxHeight: '100px', position: 'absolute', left: '4%', top: '54%'}} />
+          <span style={{ maxWidth: '20%', maxHeight: '100px', position: 'absolute', left: '2%', top: '64%', fontSize: '20px', fontWeight: 'bold', color:"#f8f9fa" }}>{tuulenNopeus}m/s</span>
 
-          <div style={{ marginLeft: '25%', marginRight: '20%' }}>
+          <div style={{ marginLeft: 'auto', marginRight: 'auto' }}>
           <Card.Title style={{fontSize:"40px", color:"#f8f9fa"}}>{data.temperature_2m} °C</Card.Title>
           <Card.Text style={{fontSize:"30px", color:"#f8f9fa"}}>{saaTyyppi}</Card.Text>
           </div>
-          
       </Card.Body>
     </Card>
-
   </div>
 
   );
