@@ -1,8 +1,15 @@
-
 import express from 'express'
 import {get7Hours, getWeeklyData} from '../jsonQueries/queries.js';
+import os from 'os'
+
+const networkInterfaces = os.networkInterfaces();
+const ipAddress = networkInterfaces.WLAN.find(entry => entry.family === 'IPv4').address;
+
 const router = express.Router();
 
+router.get('/localip', (req,res) =>{
+    res.send(JSON.stringify(ipAddress))
+})
 
 router.get('/data/:search', async (req, res)=>{
 

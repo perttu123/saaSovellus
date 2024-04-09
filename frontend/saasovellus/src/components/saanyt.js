@@ -29,7 +29,7 @@ const SaaNyt = ({data}) => {
         setSaaTyyppi("Pilvistä");
         break;
 
-      case 61: case 63: case 65:
+      case 55: case 61: case 63: case 65:
         setGif("Gifit/rain.svg");
         setSaaTyyppi("Sadetta");
         break;
