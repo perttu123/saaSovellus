@@ -29,7 +29,7 @@ export function get7Hours({data}){
             image = "Static/cloudy.svg"
             break;
     
-          case 51,53,55,56,57,61,63,65,66,67,80,81,82:
+          case 51,53,55,56,57,61,63,65,66,67,80,81,82: 
             image = "Static/rain.svg";
             break;
     
@@ -37,9 +37,11 @@ export function get7Hours({data}){
             image = "Static/snow.svg";
             break;
 
-    
           case 95,96,99:
             image = "Static/thunderstorms.svg";
+            break;
+          
+          default:
             break;
         }
         const newHourData = { time: data.hourly.time[currentIndex], temp: data.hourly.temperature_2m[currentIndex], image: image};
@@ -72,7 +74,7 @@ export function getWeeklyData({data}){
         image = "Static/cloudy.svg"
         break;
 
-      case 51,53,55,56,57,61,63,65,66,67,80,81,82:
+      case 51,53,55,56,57,61,63,65,66,67,80,81,82: case 53:
         image = "Static/rain.svg";
         break;
 
@@ -85,7 +87,6 @@ export function getWeeklyData({data}){
         image = "Static/thunderstorms.svg";
         break;
       default:
-        image = "Static/cloudy.svg"
         break;
     }
     const newHourData = {date: data.daily.time[index], max: data.daily.temperature_2m_max[index], min: data.daily.temperature_2m_min[index], image: image};
