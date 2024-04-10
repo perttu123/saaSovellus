@@ -17,6 +17,7 @@ export function get7Hours({data}){
         const weatherCode = data.hourly.weather_code[index];
         console.log(weatherCode)
         switch (weatherCode) {
+
           case 0: 
             image = "Static/clear-day.svg"
             break;
@@ -43,6 +44,7 @@ export function get7Hours({data}){
           
           default:
             break;
+
         }
         const newHourData = { time: data.hourly.time[currentIndex], temp: data.hourly.temperature_2m[currentIndex], image: image};
         array.push(newHourData);
@@ -53,7 +55,6 @@ export function get7Hours({data}){
     return array;
 }
 
-
 export function getWeeklyData({data}){
   console.log(data.daily.weather_code)
   let array = [];
@@ -61,33 +62,34 @@ export function getWeeklyData({data}){
     let image = "";
     const weatherCode = data.daily.weather_code[index];
     switch (weatherCode) {
-      case 0: 
+        case 0:
         image = "Static/clear-day.svg"
         break;
 
-      case 1,2:
+      case 1: case 2:
         image = "Static/partly-cloudy-day.svg"
         break;
 
-
-      case 3: case 45: case 48, 55:
+      case 3: case 45: case 48: case 55:
         image = "Static/cloudy.svg"
         break;
 
+
       case 51,53,55,56,57,61,63,65,66,67,80,81,82: case 53:
+
         image = "Static/rain.svg";
         break;
 
-      case 71,73,75,77,85,86:
+      case 71: case 73: case 75: case 77: case 85: case 86:
         image = "Static/snow.svg";
         break;
 
-
-      case 95,96,99:
+      case 95: case 96: case 99:
         image = "Static/thunderstorms.svg";
         break;
+
       default:
-        break;
+
     }
     const newHourData = {date: data.daily.time[index], max: data.daily.temperature_2m_max[index], min: data.daily.temperature_2m_min[index], image: image};
     array.push(newHourData);
