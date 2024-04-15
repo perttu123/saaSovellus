@@ -12,7 +12,7 @@ export default function Vertailu() {
     const [error, setError] = useState(false);
     async function searchPressed1() {
       // const response = await Vertaile(search1, search2);
-      const response = await SendLocation(search1);
+      const response = await Vertaile(search1);
       console.log(response);
           if(response.error=="error"){
             setError(true);
@@ -25,7 +25,7 @@ export default function Vertailu() {
     }
     async function searchPressed2() {
       // const response = await Vertaile(search1, search2);
-      const response = await SendLocation(search2);
+      const response = await Vertaile(search2);
       console.log(response);
           if(response.error=="error"){
             setError(true);
@@ -37,18 +37,8 @@ export default function Vertailu() {
           setSearch2("");
     }
    
-    const [data1, setData1] = useState({
-      hours: [],
-      current: {},
-      daily: [],
-      city: ""
-  });
-    const [data2, setData2] = useState({
-      hours: [],
-      current: {},
-      daily: [],
-      city: ""
-  });
+    const [data1, setData1] = useState({});
+    const [data2, setData2] = useState({});
 
    
   //kesken
@@ -70,9 +60,9 @@ export default function Vertailu() {
                 <Button onClick={searchPressed1} variant='outline-info'>Hae</Button>
               </Form>
               <Card.Title style={{ fontSize: '40px', color: '#f8f9fa', marginTop: '20px', marginBottom: '20px', marginLeft: 'auto', marginRight: 'auto' }}>{data1.city}</Card.Title>
-              <Card.Img src='Gifit/clear-day.svg' style={{ maxWidth: '20%', maxHeight: '200px', marginLeft: 'auto', marginRight: 'auto', display: 'block' }}/>
-              <Card.Title style={{fontSize:"40px", color:"#f8f9fa", marginLeft: 'auto', marginRight: 'auto', marginTop: '20px'}}>15 °C</Card.Title>
-              <Card.Text style={{fontSize:"30px", color:"#f8f9fa", marginLeft: 'auto', marginRight: 'auto'}}>Aurinkoista</Card.Text>
+              <Card.Img src={data1.image} style={{ maxWidth: '20%', maxHeight: '200px', marginLeft: 'auto', marginRight: 'auto', display: 'block' }}/>
+              <Card.Title style={{fontSize:"40px", color:"#f8f9fa", marginLeft: 'auto', marginRight: 'auto', marginTop: '20px'}}>{data1.temperature} °C</Card.Title>
+              <Card.Text style={{fontSize:"30px", color:"#f8f9fa", marginLeft: 'auto', marginRight: 'auto'}}>{data1.saatyyppi}</Card.Text>
             </Card.Body>
           </Card>
         </Col>
@@ -91,9 +81,9 @@ export default function Vertailu() {
             <Button onClick={()=>searchPressed2()} variant='outline-info'>Hae</Button>
             </Form>
               <Card.Title style={{ fontSize: '40px', color: '#f8f9fa', marginTop: '20px', marginBottom: '20px', marginLeft: 'auto', marginRight: 'auto' }}>{data2.city}</Card.Title>
-              <Card.Img src='Gifit/rain.svg' style={{ maxWidth: '20%', maxHeight: '200px', marginLeft: 'auto', marginRight: 'auto', display: 'block' }}/>
-              <Card.Title style={{fontSize:"40px", color:"#f8f9fa", marginLeft: 'auto', marginRight: 'auto', marginTop: '20px'}}>9 °C</Card.Title>
-              <Card.Text style={{fontSize:"30px", color:"#f8f9fa", marginLeft: 'auto', marginRight: 'auto'}}>Sadetta</Card.Text>
+              <Card.Img src={data2.image} style={{ maxWidth: '20%', maxHeight: '200px', marginLeft: 'auto', marginRight: 'auto', display: 'block' }}/>
+              <Card.Title style={{fontSize:"40px", color:"#f8f9fa", marginLeft: 'auto', marginRight: 'auto', marginTop: '20px'}}>{data2.temperature} °C</Card.Title>
+              <Card.Text style={{fontSize:"30px", color:"#f8f9fa", marginLeft: 'auto', marginRight: 'auto'}}>{data2.saatyyppi}</Card.Text>
             </Card.Body>
           </Card>
         </Col>

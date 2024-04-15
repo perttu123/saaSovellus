@@ -22,23 +22,23 @@ export function get7Hours({data}){
             image = "Static/clear-day.svg"
             break;
     
-          case 1,2:
+          case 1: case 2:
             image = "Static/partly-cloudy-day.svg"
             break;
     
-          case 3,45,48:
+          case 3: case 45: case 48:
             image = "Static/cloudy.svg"
             break;
     
-          case 51,53,55,56,57,61,63,65,66,67,80,81,82: 
+            case 51: case 53: case 55: case 56: case 57: case 61: case 63: case 65: case 66: case 67: case 80: case 81: case 82:
             image = "Static/rain.svg";
             break;
     
-          case 71,73,75,77,85,86:
+            case 71: case 73: case 75: case 77: case 85: case 86:
             image = "Static/snow.svg";
             break;
 
-          case 95,96,99:
+          case 95: case 96: case 99:
             image = "Static/thunderstorms.svg";
             break;
           
@@ -75,7 +75,7 @@ export function getWeeklyData({data}){
         break;
 
 
-      case 51,53,55,56,57,61,63,65,66,67,80,81,82: case 53:
+      case 51: case 53: case 55: case 56: case 57: case 61: case 63: case 65: case 66: case 67: case 80: case 81: case 82:
 
         image = "Static/rain.svg";
         break;
@@ -99,4 +99,45 @@ export function getWeeklyData({data}){
   return array;
 }
  
+export function getCurrentData({data}){
 
+  let image = "";
+  let saaTyyppi = "";
+  switch (data.current.weather_code) {
+    case 0:
+    image = "Static/clear-day.svg"
+    saaTyyppi = "Aurinkoista"
+    break;
+
+  case 1: case 2:
+    image = "Static/partly-cloudy-day.svg"
+    saaTyyppi = "Pilvistä"
+    break;
+
+  case 3: case 45: case 48: case 55:
+    image = "Static/cloudy.svg"
+    saaTyyppi = "Pilvistä"
+    break;
+
+
+  case 51: case 53: case 55: case 56: case 57: case 61: case 63: case 65: case 66: case 67: case 80: case 81: case 82:
+
+    image = "Static/rain.svg";
+    saaTyyppi = "Sateista";
+    break;
+
+  case 71: case 73: case 75: case 77: case 85: case 86:
+    image = "Static/snow.svg";
+    saaTyyppi = "Lumisadetta";
+    break;
+
+  case 95: case 96: case 99:
+    image = "Static/thunderstorms.svg";
+    saaTyyppi = "Myrsky";
+    break;
+
+  default:
+    break;
+}
+  return {image, saaTyyppi};
+}
