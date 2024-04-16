@@ -35,12 +35,13 @@ export default function Vertailu() {
             setData2(response);
           }
           setSearch2("");
+          
     }
    
     const [data1, setData1] = useState({});
     const [data2, setData2] = useState({});
+    
 
-   
   //kesken
 
   return (
@@ -82,7 +83,7 @@ export default function Vertailu() {
             </Form>
               <Card.Title style={{ fontSize: '40px', color: '#f8f9fa', marginTop: '20px', marginBottom: '20px', marginLeft: 'auto', marginRight: 'auto' }}>{data2.city}</Card.Title>
               <Card.Img src={data2.image} style={{ maxWidth: '20%', maxHeight: '200px', marginLeft: 'auto', marginRight: 'auto', display: 'block' }}/>
-              <Card.Title style={{fontSize:"40px", color:"#f8f9fa", marginLeft: 'auto', marginRight: 'auto', marginTop: '20px'}}>{data2.temperature} °C</Card.Title>
+              <Card.Title style={{fontSize:"40px", color:"#f8f9fa", marginLeft: 'auto', marginRight: 'auto', marginTop: '20px'}}>{data2.temperature}°C</Card.Title>
               <Card.Text style={{fontSize:"30px", color:"#f8f9fa", marginLeft: 'auto', marginRight: 'auto'}}>{data2.saatyyppi}</Card.Text>
             </Card.Body>
           </Card>

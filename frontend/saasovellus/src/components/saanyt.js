@@ -57,12 +57,12 @@ const SaaNyt = ({data}) => {
           <Card.Img src={gif} style={{ maxWidth: '20%', maxHeight: '200px', marginLeft: 'auto', marginRight: 'auto', display: 'block'}} />
 
           {/* kosteus */}
-          <Card.Img src="gifit/humidity.svg" style={{ maxWidth: '20%', maxHeight: '120px', position: 'absolute', left: '0%', top: '13%'}} />
+          <Card.Img src="gifit/humidity.svg" style={{ maxWidth: '20%', maxHeight: '120px', position: 'absolute', right: '75%', top: '13%'}} />
           <span style={{ maxWidth: '40%', maxHeight: '120px', position: 'absolute', left: '2%', top: '27%', fontSize: '20px', fontWeight: 'bold' ,color:"#f8f9fa"}}>{kosteus}%</span>
 
           {/* tuulennopeus */}
-          <Card.Img src="Gifit/wind.svg" style={{ maxWidth: '20%', maxHeight: '100px', position: 'absolute', left: '4%', top: '54%'}} />
-          <span style={{ maxWidth: '20%', maxHeight: '100px', position: 'absolute', left: '2%', top: '64%', fontSize: '20px', fontWeight: 'bold', color:"#f8f9fa" }}>{tuulenNopeus}m/s</span>
+          <Card.Img src="Gifit/wind.svg" style={{ maxWidth: '15%', maxHeight: '100px', position: 'absolute', right: '70%', top: '58%'}} />
+          <span style={{ maxWidth: '20%', maxHeight: '100px', position: 'absolute', left: '2%', top: '66%', fontSize: '20px', fontWeight: 'bold', color:"#f8f9fa" }}>{tuulenNopeus}m/s</span>
 
           <div style={{ marginLeft: 'auto', marginRight: 'auto' }}>
           <Card.Title style={{fontSize:"40px", color:"#f8f9fa"}}>{data.temperature_2m} °C</Card.Title>
