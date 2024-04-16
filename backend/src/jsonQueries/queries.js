@@ -111,7 +111,7 @@ export function getCurrentData({data}){
 
   case 1: case 2:
     image = "Gifit/partly-cloudy-day.svg"
-    saaTyyppi = "Pilvistä"
+    saaTyyppi = "Puolipilvistä"
     break;
 
   case 3: case 45: case 48: case 55:
