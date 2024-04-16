@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import { SendLocation } from '../components/ApiHaku';
-
+import ErrorSearch from '../components/ErrorSearch';
 
 import {Row, Col} from 'react-bootstrap'
 import '../App.css';
@@ -25,6 +25,7 @@ function SearchResult() {
     //     relative_humidity_2m: 0,
     //     wind_speed_10m: 0
     // })
+    const [error, setError] = useState(false);
     const [data, setData] = useState({
         hours: [],
         current: {},
@@ -36,10 +37,13 @@ function SearchResult() {
         async function fetchData() {
             try {
                 const response = await SendLocation(search);
-                
-                setData(response);
-                
-                
+                if(response.error=="error"){
+                  setError(true);
+                }
+                else{
+                  setError(false);
+                  setData(response);
+                }
                 // setHourlyData(response.hours);
                 // setCurrentWeather(response.current);
             } catch (error) {
@@ -52,21 +56,27 @@ function SearchResult() {
 
     return (
         <div className="App">
-      
-        <Row>
+        {error ? (<ErrorSearch/>):
+        (
+          <>
+          <Row>
           <Col md={6}><Paikka data={data.city}/></Col>
           <Col md={6}><SaaNyt data={data.current}/></Col>
         </Row>
         <Row className="mt-5 px-5">
           <div className="col-md-6">
-            <h3>Tuntiennuste</h3>
+            <h3 style={{ backgroundColor: '#212529', padding: '10px', color:'white', border: '2px solid black'}}>Tuntiennuste</h3>
             <TuntiEnnuste data={data.hours}/>
           </div>
           <div className="col-md-6">
-            <h3>Viikkoennuste</h3>
+            <h3 style={{ backgroundColor: '#212529', padding: '10px', color:'white', border: '2px solid black'}}>Viikkoennuste</h3>
             <ViikkoEnnuste data={data.daily}/>
           </div>
         </Row>
+
+          </>
+        )}
+        
       </div>
     );
 }
